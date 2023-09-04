@@ -27,26 +27,15 @@ export const Header: FC = () => {
     <header className="header">
       <div className="container header__container">
         <nav className="header__navigation">
-          <ul className="header__navigation-list">
-            <li className="header__navigation-list-item">
-              <a
-                href="/"
-                onClick={(event) =>
-                  location.pathname === "/" && event.preventDefault()
-                }
-                className="header__navigation-link"
-              >
-                Пользователи гитхаба
-              </a>
-            </li>
-            {location.state && (
-              <li className="header__navigation-list-item">
-                <a className="header__navigation-link header__navigation-link--user">
-                  {location.state}
-                </a>
-              </li>
-            )}
-          </ul>
+          <a
+            href="/"
+            onClick={(event) =>
+              location.pathname === "/" && event.preventDefault()
+            }
+            className="header__logo"
+          >
+            Github users
+          </a>
         </nav>
 
         <div className="header__search">

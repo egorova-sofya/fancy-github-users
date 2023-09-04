@@ -2,9 +2,7 @@
 
 @font-face {
   font-family: "Clash Display";
-  src: url("./../src/fonts/ClashDisplay-Variable.ttf")
-      format("ttf supports variations"),
-    url("./../src/fonts/ClashDisplay-Variable.ttf") format("ttf-variations");
+  src: url("./../src/assets/fonts/ClashDisplay-Variable.ttf") format("truetype");
   font-weight: 100 1000;
 }
 
@@ -14,6 +12,8 @@
 
   --border-radius-large: 25px;
   --border-radius-medium: 13px;
+
+  --padding-left-right: 28px;
 
   --blue: #91a8ec;
   --blueLight: #c0cffc;
