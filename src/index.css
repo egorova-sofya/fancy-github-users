@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&display=swap");
+
+@font-face {
+  font-family: "Clash Display";
+  src: url("./../src/fonts/ClashDisplay-Variable.ttf")
+      format("ttf supports variations"),
+    url("./../src/fonts/ClashDisplay-Variable.ttf") format("ttf-variations");
+  font-weight: 100 1000;
+}
+
+:root {
+  --font-primary: "Cabin", sans-serif;
+  --font-accent: "Clash Display", sans-serif;
+
+  --border-radius-large: 25px;
+  --border-radius-medium: 13px;
+
+  --blue: #91a8ec;
+  --blueLight: #c0cffc;
+  --yellow: #f6ca46;
+  --pink-dark: #ea4c89;
+  --pink: #ff91e8;
+  --green: #70cab1;
+  --white: #ffffff;
+  --black: #272725;
+
+  --primary-shadow-medium: 1px 3px 0px 0px var(--black);
+}
+
+*:focus-visible {
+  outline: 4px solid var(--color-accent);
+  outline-offset: 6px;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--white);
+  font-size: 16px;
+  color: var(--black);
+}
