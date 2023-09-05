@@ -1,15 +1,20 @@
-import { useRouteError } from "react-router-dom";
+import Button from "../Button/Button";
+import "./ErrorPage.css";
+import oopsImage from "./../../assets/images/Oops!.svg";
+import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
-  const error = useRouteError();
-  console.error(error);
   return (
-    <div id="error-page">
-      <h1>Oops!</h1>
-      <p>Sorry, an unexpected error has occurred.</p>
-      <p>
-        <i>{error.statusText || error.message}</i>
-      </p>
+    <div className="error-page">
+      <div className=" error-page__container">
+        <img src={oopsImage} width={307} height={125} />
+        <p className="error-page__description">
+          Sorry, an unexpected error has occurred.
+        </p>
+      </div>
+      <Button as={Link} to={"/users"}>
+        Back to homepage
+      </Button>
     </div>
   );
 };
