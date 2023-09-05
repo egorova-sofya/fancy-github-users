@@ -1,20 +1,26 @@
-import { FC, SVGProps } from "react";
+import { DetailedHTMLProps, FC, HTMLAttributes, SVGProps } from "react";
+import cn from "classnames";
 import "./Input.css";
 
-interface Props {
+interface Props
+  extends DetailedHTMLProps<
+    HTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  > {
   icon?: SVGProps<SVGElement>;
   name: string;
 }
 
-const Input: FC<Props> = ({ icon, name }) => {
+const Input: FC<Props> = ({ icon, name, className, ...props }) => {
   return (
-    <div className="input__wrapper">
+    <div className={cn("input__wrapper", className)}>
       {icon && (
         <div className="input__icon">
           <>{icon}</>
         </div>
       )}
       <input
+        {...props}
         type="text"
         className="input"
         placeholder="Search"

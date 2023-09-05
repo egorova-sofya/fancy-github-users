@@ -1,6 +1,4 @@
 .user-card {
-  max-width: 320px;
-
   border: 1px solid var(--black);
   border-radius: var(--border-radius-medium);
   padding: 20px 32px;

@@ -2,6 +2,8 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(320px, 1fr));
   gap: 60px 32px;
+  max-width: var(--max-container-width);
+  margin: auto;
 }
 
 .users-list .users-list__user-card:nth-child(5n + 1) {
@@ -22,4 +24,16 @@
 
 .users-list .users-list__user-card:nth-child(5n + 5) {
   --background-color: var(--pink-dark);
+}
+
+@media screen and (max-width: 1075px) {
+  .users-list {
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
+    gap: 32px 20px;
+  }
+}
+@media screen and (max-width: 730px) {
+  .users-list {
+    grid-template-columns: repeat(1, minmax(320px, 1fr));
+  }
 }

@@ -1,5 +1,5 @@
 import { FC, FormEvent, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./Header.css";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
