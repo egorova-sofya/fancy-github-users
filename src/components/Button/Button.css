@@ -1,14 +1,23 @@
 .button {
+  text-align: center;
   color: var(--black);
   font-family: var(--font-accent);
-  font-size: 18px;
   font-weight: 600;
   border-radius: var(--border-radius-medium);
   border: 3px solid var(--black);
   background: var(--yellow);
   box-shadow: var(--primary-shadow-medium);
-  padding: 12px 28px;
   cursor: pointer;
+}
+
+.button--medium {
+  font-size: 18px;
+  padding: 12px 28px;
+}
+
+.button--large {
+  font-size: 31px;
+  padding: 20px 36px;
 }
 
 .button:focus,

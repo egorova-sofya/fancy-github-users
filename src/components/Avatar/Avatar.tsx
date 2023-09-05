@@ -10,9 +10,9 @@ interface Props {
 }
 const Avatar: FC<Props> = ({ imageUrl, size = "medium" }) => {
   const sizesStyles = {
-    ["avatar__small"]: size == "small",
-    ["avatar__medium"]: size == "medium",
-    ["avatar__large"]: size == "large",
+    ["avatar--small"]: size == "small",
+    ["avatar--medium"]: size == "medium",
+    ["avatar--large"]: size == "large",
   };
 
   return (

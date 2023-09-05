@@ -1,0 +1,51 @@
+.welcome-page {
+  position: relative;
+  background-color: var(--blue);
+  height: 100vh;
+  background-image: linear-gradient(
+      rgba(39, 39, 25375, 0.3) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(39, 39, 37, 0.3) 1px, transparent 1px);
+  background-repeat: repeat, repeat;
+  background-size: 70px 70px, 70px 70px;
+  background-position: -1px -1px, -1px -1px;
+}
+
+.welcome-page::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 60%;
+  height: 90%;
+  background-image: url("./../../assets/images/searching.png");
+  background-position: right bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.welcome-page__header {
+  background-color: var(--white);
+  box-shadow: var(--primary-shadow-large);
+  position: absolute;
+  top: 57px;
+  left: -15px;
+  padding: 96px 62px;
+  max-width: 50%;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.welcome-page__title {
+  font-family: var(--font-accent);
+  font-size: 102px;
+  font-weight: 600;
+  line-height: 109px;
+  margin-bottom: 52px;
+}
+
+.welcome-page__button {
+  max-width: 280px;
+}
