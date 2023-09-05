@@ -3,3 +3,33 @@
   border-radius: 50%;
   border: 2px solid var(--black);
 }
+
+.avatar__placeholder {
+  font-size: 28px;
+  font-weight: 700;
+  width: 80px;
+  height: 80px;
+
+  background-color: var(--background-color);
+  border-radius: 50%;
+  border: 2px solid var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar__small {
+  width: 40px;
+  height: 40px;
+}
+
+.avatar__medium {
+  width: 80px;
+  height: 80px;
+}
+
+.avatar__large {
+  width: 207px;
+  height: 207px;
+  font-size: 38px;
+}

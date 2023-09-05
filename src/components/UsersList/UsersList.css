@@ -1,0 +1,26 @@
+.users-list {
+  padding: 12px var(--padding-left-right);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(320px, 1fr));
+  gap: 60px 32px;
+}
+
+.users-list .users-list__user-card:nth-child(5n + 1) {
+  --background-color: var(--blue);
+}
+
+.users-list .users-list__user-card:nth-child(5n + 2) {
+  --background-color: var(--yellow);
+}
+
+.users-list .users-list__user-card:nth-child(5n + 3) {
+  --background-color: var(--pink);
+}
+
+.users-list .users-list__user-card:nth-child(5n + 4) {
+  --background-color: var(--green);
+}
+
+.users-list .users-list__user-card:nth-child(5n + 5) {
+  --background-color: var(--pink-dark);
+}

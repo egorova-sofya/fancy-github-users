@@ -19,8 +19,8 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        index: true, // Set this route as the default index route
-        element: <Navigate to="/users" replace={true} />, // Navigate to /users
+        index: true,
+        element: <Navigate to="/users" replace={true} />,
       },
       {
         path: "users",

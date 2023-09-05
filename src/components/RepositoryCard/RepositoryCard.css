@@ -1,26 +1,15 @@
-.user-card {
-  max-width: 320px;
+.repository-card {
+  max-width: 400px;
 
   border: 1px solid var(--black);
   border-radius: var(--border-radius-medium);
+  background: var(--white);
   padding: 20px 32px;
   position: relative;
   cursor: pointer;
 }
 
-.user-card::after {
-  content: "";
-  position: absolute;
-  top: -1px;
-  bottom: -1px;
-  left: -1px;
-  width: 18px;
-  background: var(--background-color);
-  border-top-left-radius: var(--border-radius-medium);
-  border-bottom-left-radius: var(--border-radius-medium);
-}
-
-.user-card__link {
+.repository-card__link {
   text-decoration: none;
   color: inherit;
   display: flex;
@@ -28,13 +17,14 @@
   gap: 16px;
 }
 
-.user-card__info {
+.repository-card__info {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 8px;
 }
 
-.user-card__name {
+.repository-card__name {
   font-size: 18px;
   font-weight: 700;
   border-radius: var(--border-radius-small);
@@ -45,14 +35,8 @@
   margin: 0;
 }
 
-.user-card__description {
+.repository-card__description {
   font-size: 14px;
   font-weight: 400;
   margin: 0;
-}
-
-.user-card__wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
 }

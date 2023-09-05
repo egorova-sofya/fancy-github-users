@@ -8,6 +8,7 @@
   background: var(--yellow);
   box-shadow: var(--primary-shadow-medium);
   padding: 12px 28px;
+  cursor: pointer;
 }
 
 .button:focus,

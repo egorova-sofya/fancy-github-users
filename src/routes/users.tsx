@@ -1,9 +1,9 @@
-import UserCard from "../components/UserCard/UserCard";
+import UsersList from "../components/UsersList/UsersList";
 
 export default function Users() {
   return (
     <>
-      <UserCard />
+      <UsersList />
     </>
   );
 }

@@ -1,0 +1,39 @@
+.repositories-list__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.repositories-list__title {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.repositories-list__button {
+  font-size: 18px;
+  font-weight: 400;
+  padding-right: 36px;
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.repositories-list__button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  width: 24px;
+  height: 24px;
+  background-image: url("./../../assets/images/arrow-right.svg");
+  background-repeat: no-repeat;
+}
+
+.repositories-list__wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}

@@ -1,0 +1,63 @@
+.user-profile {
+  padding-top: 12px;
+}
+
+.user-profile__user {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  padding: 0 var(--padding-left-right);
+  margin-bottom: 56px;
+}
+
+.user-profile__info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.user-profile__name {
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.user-profile__data-wrapper {
+  display: flex;
+  gap: 12px;
+}
+
+.user-profile__data {
+  position: relative;
+  padding-right: 12px;
+  font-size: 14px;
+}
+
+.user-profile__data--link {
+  border-bottom: 1px solid var(--black);
+  cursor: pointer;
+}
+
+.user-profile__data:last-child {
+  padding-right: 0;
+}
+
+.user-profile__data::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--black);
+}
+
+.user-profile__data:last-child::after {
+  display: none;
+}
+
+.user-profile__repositories {
+  background-color: #c0cffc;
+  padding: 40px var(--padding-left-right);
+}
