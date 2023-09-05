@@ -1,27 +1,29 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import {
-  createBrowserRouter,
-  Navigate,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import ErrorPage from "./components/ErrorPage/ErrorPage.tsx";
 import Root from "./routes/root.tsx";
 import Users from "./routes/users.tsx";
 import UserProfile from "./routes/user-profile.tsx";
 import SearchingResults from "./routes/searching-results.tsx";
+import { Header } from "./components/Header/Header.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
+  },
+  {
+    path: "/",
+    element: (
+      <>
+        <Header />
+        <Outlet />
+      </>
+    ),
     children: [
-      {
-        index: true,
-        element: <Navigate to="/users" replace={true} />,
-      },
       {
         path: "users",
         element: <Users />,

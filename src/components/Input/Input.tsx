@@ -1,5 +1,5 @@
-import React, { FC, SVGProps } from 'react';
-import './Input.css';
+import { FC, SVGProps } from "react";
+import "./Input.css";
 
 interface Props {
   icon?: SVGProps<SVGElement>;
@@ -9,12 +9,17 @@ interface Props {
 const Input: FC<Props> = ({ icon, name }) => {
   return (
     <div className="input__wrapper">
-      {icon ?? icon}
+      {icon && (
+        <div className="input__icon">
+          <>{icon}</>
+        </div>
+      )}
       <input
         type="text"
         className="input"
         placeholder="Search"
         name={name}
+        style={icon ? { paddingLeft: "56px" } : {}}
         //   value={searchValue}
         //   onChange={(event) => setSearchValue(event.currentTarget.value)}
       />

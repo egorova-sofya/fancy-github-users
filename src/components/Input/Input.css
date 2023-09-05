@@ -1,5 +1,14 @@
 .input__wrapper {
   display: flex;
+  position: relative;
+}
+.input__icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20px;
+  width: 24px;
+  height: 24px;
 }
 
 .input {
