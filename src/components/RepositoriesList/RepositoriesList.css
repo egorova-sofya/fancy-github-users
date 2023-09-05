@@ -1,3 +1,8 @@
+.repositories-list {
+  position: relative;
+  padding-bottom: 52px;
+}
+
 .repositories-list__header {
   display: flex;
   justify-content: space-between;
@@ -36,4 +41,27 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
+}
+
+@media screen and (max-width: 992px) {
+  .repositories-list__header {
+    margin-bottom: 20px;
+  }
+
+  .repositories-list__wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .repositories-list__wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .repositories-list__button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
 }

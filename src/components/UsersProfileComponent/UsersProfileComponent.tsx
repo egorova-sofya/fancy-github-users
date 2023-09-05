@@ -6,15 +6,17 @@ const UsersProfileComponent = () => {
   return (
     <div className="user-profile">
       <div className="user-profile__user">
-        <Avatar size="large" />
+        <Avatar size="large" className="user-profile__avatar" />
         <div className="user-profile__info">
           <p className="user-profile__name">Naomi Willms</p>
 
           <div className="user-profile__data-wrapper">
             <small className="user-profile__data">21 followers</small>
             <small className="user-profile__data">210 followers</small>
-            <small className="user-profile__data user-profile__data--link">
-              <a>https://mypersonalsite.com/</a>
+            <small className="user-profile__data">
+              <a className="user-profile__data--link">
+                https://mypersonalsite.com/
+              </a>
             </small>
           </div>
         </div>

@@ -3,7 +3,7 @@ import "./RepositoriesList.css";
 
 const RepositoriesList = () => {
   return (
-    <div>
+    <div className="repositories-list">
       <div className="repositories-list__header">
         <h2 className="repositories-list__title">Repositories</h2>
         <button className="repositories-list__button">All repositories</button>

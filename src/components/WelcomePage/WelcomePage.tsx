@@ -5,7 +5,7 @@ import "./WelcomePage.css";
 const WelcomePage = () => {
   return (
     <div className="welcome-page">
-      <div className="welcome-page__header">
+      <header className="welcome-page__header">
         <h1 className="welcome-page__title">Find GitHub users</h1>
         <Button
           as={Link}
@@ -15,7 +15,7 @@ const WelcomePage = () => {
         >
           Get started
         </Button>
-      </div>
+      </header>
     </div>
   );
 };

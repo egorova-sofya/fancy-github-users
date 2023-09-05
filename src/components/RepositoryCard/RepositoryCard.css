@@ -1,6 +1,4 @@
 .repository-card {
-  max-width: 400px;
-
   border: 1px solid var(--black);
   border-radius: var(--border-radius-medium);
   background: var(--white);

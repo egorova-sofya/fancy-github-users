@@ -27,7 +27,7 @@
   --black: #272725;
 
   --primary-shadow-medium: 1px 3px 0px 0px var(--black);
-  --primary-shadow-large: 15px 13px 0px 0px var(--black);
+  --primary-shadow-large: 3px 7px 0px 0px var(--black);
 }
 
 @media screen and (max-width: 576px) {
