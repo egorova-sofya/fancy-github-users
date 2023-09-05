@@ -1,10 +1,9 @@
-import { Header } from "../components/Header/Header";
+import UserCard from "../components/UserCard/UserCard";
 
 export default function Users() {
   return (
     <>
-      {/* <Header /> */}
-      <div>Users</div>
+      <UserCard />
     </>
   );
 }

@@ -1,0 +1,5 @@
+.avatar {
+  filter: contrast(120%) grayscale(100%);
+  border-radius: 50%;
+  border: 2px solid var(--black);
+}
