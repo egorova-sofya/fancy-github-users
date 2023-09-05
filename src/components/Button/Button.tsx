@@ -9,12 +9,15 @@ interface Props
   > {
   children: ReactNode;
   size?: "medium" | "large";
+  appearance?: "primary" | "secondary";
 }
 
+//сделать link
 const Button: FC<Props> = ({
   className,
   children,
   size = "medium",
+  appearance = "primary",
   ...props
 }) => {
   return (
@@ -23,6 +26,8 @@ const Button: FC<Props> = ({
       className={cn("button", className, {
         ["button--medium"]: size == "medium",
         ["button--large"]: size == "large",
+        ["button--primary"]: appearance == "primary",
+        ["button--secondary"]: appearance == "secondary",
       })}
     >
       {children}

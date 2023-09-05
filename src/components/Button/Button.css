@@ -5,7 +5,6 @@
   font-weight: 600;
   border-radius: var(--border-radius-medium);
   border: 3px solid var(--black);
-  background: var(--yellow);
   box-shadow: var(--primary-shadow-medium);
   cursor: pointer;
 }
@@ -18,6 +17,13 @@
 .button--large {
   font-size: 31px;
   padding: 20px 36px;
+}
+
+.button--primary {
+  background: var(--yellow);
+}
+.button--secondary {
+  background: var(--white);
 }
 
 .button:focus,
