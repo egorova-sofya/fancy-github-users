@@ -1,9 +1,7 @@
+import SearchingResultsComponent from "../components/SearchingResultsComponent/SearchingResultsComponent";
+
 const SearchingResults = () => {
-  return (
-    <>
-      <div>SearchingResults</div>
-    </>
-  );
+  return <SearchingResultsComponent />;
 };
 
 export default SearchingResults;

@@ -1,0 +1,25 @@
+.searching-results {
+  padding: 0 var(--padding-left-right);
+  padding-top: 12px;
+}
+
+.searching-results__title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+.searching-results__not-found-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.searching-results__not-found {
+  height: 80vh;
+  background-image: url("./../../assets/images/no-results.png");
+  background-repeat: no-repeat;
+  background-size: 260px;
+  background-position: center 20%;
+}

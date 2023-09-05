@@ -1,5 +1,4 @@
 .users-list {
-  padding: 12px var(--padding-left-right);
   display: grid;
   grid-template-columns: repeat(3, minmax(320px, 1fr));
   gap: 60px 32px;
