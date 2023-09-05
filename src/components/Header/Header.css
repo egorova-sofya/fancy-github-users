@@ -18,5 +18,6 @@
 
 .header__search-form {
   display: flex;
+  align-items: center;
   gap: 24px;
 }

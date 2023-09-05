@@ -3,12 +3,11 @@
   font-family: var(--font-accent);
   font-size: 18px;
   font-weight: 600;
-
   border-radius: var(--border-radius-medium);
   border: 3px solid var(--black);
   background: var(--yellow);
   box-shadow: var(--primary-shadow-medium);
-  padding: 16px 28px;
+  padding: 12px 28px;
 }
 
 .button:focus,
