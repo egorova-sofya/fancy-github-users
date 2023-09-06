@@ -1,5 +1,5 @@
 import { FC, FormEvent, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Header.css";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
@@ -28,15 +28,15 @@ export const Header: FC = () => {
     <header className="header">
       <div className="container header__container">
         <nav className="header__navigation">
-          <a
-            href="/"
+          <Link
+            to="/users"
             onClick={(event) =>
               location.pathname === "/users" && event.preventDefault()
             }
             className="header__logo"
           >
             Github users
-          </a>
+          </Link>
         </nav>
 
         <div className="header__search">

@@ -1,16 +1,30 @@
+import { FC } from "react";
+import { IRepository } from "../../types";
 import RepositoryCard from "../RepositoryCard/RepositoryCard";
 import "./RepositoriesList.css";
 
-const RepositoriesList = () => {
+interface Props {
+  repositoriesUrl: string;
+  repositories: Array<IRepository>;
+}
+
+const RepositoriesList: FC<Props> = ({ repositories, repositoriesUrl }) => {
   return (
     <div className="repositories-list">
       <div className="repositories-list__header">
         <h2 className="repositories-list__title">Repositories</h2>
-        <button className="repositories-list__button">All repositories</button>
+        <a
+          href={`${repositoriesUrl}?tab=repositories`}
+          target="_blank"
+          rel="noreferrer"
+          className="repositories-list__link"
+        >
+          All repositories
+        </a>
       </div>
       <div className="repositories-list__wrapper">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => {
-          return <RepositoryCard key={item} />;
+        {repositories.map((repository) => {
+          return <RepositoryCard key={repository.id} repository={repository} />;
         })}
       </div>
     </div>

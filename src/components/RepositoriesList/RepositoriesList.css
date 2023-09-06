@@ -15,7 +15,7 @@
   font-weight: 700;
 }
 
-.repositories-list__button {
+.repositories-list__link {
   font-size: 18px;
   font-weight: 400;
   padding-right: 36px;
@@ -23,9 +23,11 @@
   background: transparent;
   border: none;
   cursor: pointer;
+  color: inherit;
+  text-decoration: none;
 }
 
-.repositories-list__button::after {
+.repositories-list__link::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -59,7 +61,7 @@
     grid-template-columns: repeat(1, 1fr);
   }
 
-  .repositories-list__button {
+  .repositories-list__link {
     position: absolute;
     bottom: 0;
     right: 0;
