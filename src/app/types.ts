@@ -9,6 +9,10 @@ export interface IUser {
   following: number;
   html_url: string;
 }
+export interface IStrippedDownUser {
+  login: string;
+  id: number;
+}
 
 export interface IRepository {
   id: number;

@@ -1,35 +1,38 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API } from "../app/services/ApiService";
 import Button from "../components/Button/Button";
 import UsersList from "../components/UsersList/UsersList";
 import { updateUsers } from "../app/commonSlice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { RootState } from "../app/store";
 // import users from "./../utils/usersV2.json";
 
 export default function Users() {
   const [usersQuantity, setUsersQuantity] = useState(1);
 
-  const { data: users } = API.useGetGithubUsersQuery({ since: 1 });
+  // const { data: users } = API.useGetGithubUsersQuery({ since: 1 });
   const [getUsers] = API.useLazyGetGithubUsersQuery();
 
   const [getUser, { data }] = API.useLazyGetGithubUserQuery();
+  const finalUsers = useSelector((state: RootState) => state.commonSlice.users);
 
   const dispatch = useDispatch();
 
-  // console.log("data", data);
+  // const getFullUsersFullInfo = () => {
+  //   getUsers({ since: usersQuantity })
+  //     .unwrap()
+  //     .then((res) => {
+  //       res.map((user) => {
+  //         getUser({ userLogin: user.login })
+  //           .unwrap()
+  //           .then((finalUser) => dispatch(updateUsers(finalUser)));
+  //       });
+  //     });
+  // };
 
-  const getFullUsersFullInfo = () => {
-    if (users)
-      users.map((item) => {
-        getUser({ userLogin: item.login })
-          .unwrap()
-          .then(() => console.log());
-        // dispatch(updateUsers(item))
-      });
-  };
-
-  //получаем список с урезанной инфой пользователей от 1 до 10
-  //итерируемся по этому массиву и каждый раз  запрашиваем  полную инфу о пользователе и сохраняем в state
+  // useEffect(() => {
+  //   getFullUsersFullInfo();
+  // }, []);
 
   const loadMoreUsers = () => {
     setUsersQuantity(usersQuantity + 10);
@@ -39,7 +42,7 @@ export default function Users() {
   return (
     <>
       <div style={{ padding: "12px var(--padding-left-right)" }}>
-        <UsersList users={users} />
+        <UsersList users={finalUsers} />
       </div>
       <div style={{ textAlign: "center" }}>
         <Button

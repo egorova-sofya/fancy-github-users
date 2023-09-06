@@ -3,7 +3,7 @@ import {
   createApi,
   fetchBaseQuery,
 } from "@reduxjs/toolkit/query/react";
-import { IUser } from "../types";
+import { IStrippedDownUser, IUser } from "../types";
 
 export const API = createApi({
   reducerPath: "API",
@@ -16,21 +16,11 @@ export const API = createApi({
     },
   }) as BaseQueryFn,
   endpoints: (build) => ({
-    getGithubUsers: build.query<Array<IUser>, { since?: number }>({
-      query: (since) => `users?per_page=10&since=${since ? since : 1}`,
+    getGithubUsers: build.query<Array<IStrippedDownUser>, { since?: number }>({
+      query: (data) => `users?per_page=3&since=${data.since ? data.since : 1}`,
     }),
-    getGithubUser: build.query<Array<IUser>, { userLogin: string }>({
-      query: (userLogin) => `users/${userLogin}`,
+    getGithubUser: build.query<IUser, { userLogin: string }>({
+      query: (data) => `users/${data.userLogin}`,
     }),
   }),
 });
-
-// Параметры запроса
-// Имя, Вид, Description
-// since integer
-// A user ID. Only return users with an ID greater than this ID.
-
-// per_page integer
-// The number of results per page (max 100).
-
-// По умолчанию.: 30
