@@ -3,7 +3,7 @@ import Avatar from "../Avatar/Avatar";
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import cn from "classnames";
 import { Link } from "react-router-dom";
-import { IUser } from "../../types";
+import { IUser } from "../../app/types";
 import { getPlural } from "../../utils/getPlural";
 
 interface Props

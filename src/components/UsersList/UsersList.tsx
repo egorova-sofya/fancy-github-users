@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { IUser } from "../../types";
+import { IUser } from "../../app/types";
 import UserCard from "../UserCard/UserCard";
 import "./UsersList.css";
 

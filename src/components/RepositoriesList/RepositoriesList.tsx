@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { IRepository } from "../../types";
+import { IRepository } from "../../app/types";
 import RepositoryCard from "../RepositoryCard/RepositoryCard";
 import "./RepositoriesList.css";
 
