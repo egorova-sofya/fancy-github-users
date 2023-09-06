@@ -5,6 +5,7 @@
   padding: 20px 32px;
   position: relative;
   cursor: pointer;
+  min-height: 128px;
 }
 
 .repository-card__link {
@@ -29,12 +30,14 @@
   border: 1px solid var(--black);
   background: var(--yellow);
   padding: 0 4px;
-  display: inline-block;
   margin: 0;
+  max-width: 300px;
+  -webkit-line-clamp: 1;
 }
 
 .repository-card__description {
   font-size: 14px;
   font-weight: 400;
   margin: 0;
+  max-width: 300px;
 }

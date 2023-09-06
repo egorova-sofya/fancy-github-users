@@ -42,11 +42,11 @@ const UserCard: FC<Props> = ({ user, className, ...props }) => {
       >
         <Avatar imageUrl={user.avatar_url} />
         <div className="user-card__info">
-          <p className="user-card__name">{user.login}</p>
+          <p className="user-card__name crop-line">{user.login}</p>
           <div className="user-card__wrapper">
-            <p className="user-card__description">{user.company}</p>
-            <p className="user-card__description">
-              {repositoryQuantity} {repositoryText}
+            <p className="user-card__description crop-line">{user.company}</p>
+            <p className="user-card__description crop-line">
+              {user.public_repos} {repositoryText}
             </p>
           </div>
         </div>

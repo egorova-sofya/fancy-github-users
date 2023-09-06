@@ -53,7 +53,7 @@ const UsersProfileComponent = () => {
                   href={user.blog}
                   target="_blank"
                   rel="noreferrer"
-                  className="user-profile__data--link"
+                  className="user-profile__data--link crop-line"
                 >
                   {user.blog}
                 </a>

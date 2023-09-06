@@ -24,10 +24,14 @@
 .user-profile__name {
   font-size: 38px;
   font-weight: 700;
+  word-break: break-all;
+  max-width: 300px;
 }
 
 .user-profile__data-wrapper {
   display: flex;
+  max-width: 500px;
+  flex-wrap: wrap;
   gap: 12px;
 }
 
@@ -40,11 +44,8 @@
 .user-profile__data--link {
   border-bottom: 1px solid var(--black);
   cursor: pointer;
-  word-break: break-all;
-  display: -webkit-box;
+  max-width: 200px;
   -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
   text-decoration: none;
   color: inherit;
 }

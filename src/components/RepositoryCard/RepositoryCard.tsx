@@ -14,8 +14,8 @@ const RepositoryCard: FC<Props> = ({ repository, className, ...props }) => {
     <div {...props} className={cn("repository-card", className)}>
       <Link to="#" className="repository-card__link">
         <div className="repository-card__info">
-          <p className="repository-card__name">{repository.name}</p>
-          <p className="repository-card__description">
+          <p className="repository-card__name crop-line">{repository.name}</p>
+          <p className="repository-card__description crop-line">
             {repository.description
               ? repository.description
               : "No description provided"}

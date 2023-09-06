@@ -60,3 +60,12 @@ body {
   color: var(--black);
   min-width: 320px;
 }
+
+.crop-line {
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  max-width: 200px;
+  -webkit-line-clamp: 3;
+}
