@@ -45,6 +45,8 @@
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  text-decoration: none;
+  color: inherit;
 }
 
 .user-profile__data:last-child {

@@ -8,6 +8,7 @@ import repos from "./../../utils/repos.json";
 import { useLocation } from "react-router-dom";
 import { CSSProperties } from "react";
 import { LightenDarkenColor } from "../../utils/lightenDarkenColor";
+import { IUser } from "../../app/types";
 
 const UsersProfileComponent = () => {
   const { id } = useParams();
@@ -16,7 +17,7 @@ const UsersProfileComponent = () => {
   const currentColor = location.state?.data;
   const lightBG = LightenDarkenColor(currentColor, 50);
 
-  const user = usersV2[0];
+  const user = usersV2[0] as IUser;
 
   const followersQuantity = getPlural(user.followers);
   const followersText = followersQuantity == "one" ? "follower" : "followers";
@@ -46,9 +47,18 @@ const UsersProfileComponent = () => {
             <small className="user-profile__data">
               {user.following} {subscribersText}
             </small>
-            <small className="user-profile__data">
-              <a className="user-profile__data--link">{user.blog}</a>
-            </small>
+            {user.blog && (
+              <small className="user-profile__data">
+                <a
+                  href={user.blog}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="user-profile__data--link"
+                >
+                  {user.blog}
+                </a>
+              </small>
+            )}
           </div>
         </div>
       </div>

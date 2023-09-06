@@ -8,6 +8,7 @@ export interface IUser {
   followers: number;
   following: number;
   html_url: string;
+  blog: string | null;
 }
 export interface IStrippedDownUser {
   login: string;

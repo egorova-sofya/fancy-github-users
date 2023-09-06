@@ -38,6 +38,10 @@
   }
 }
 
+*:focus {
+  outline: none;
+}
+
 *:focus-visible {
   outline: 4px solid var(--black);
   outline-offset: 6px;
