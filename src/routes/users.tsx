@@ -5,7 +5,6 @@ import UsersList from "../components/UsersList/UsersList";
 import { updateUsers } from "../app/commonSlice";
 import { useEffect, useState } from "react";
 import { RootState } from "../app/store";
-// import users from "./../utils/usersV2.json";
 
 export default function Users() {
   const [usersQuantity, setUsersQuantity] = useState(1);

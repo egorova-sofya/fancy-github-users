@@ -1,6 +1,13 @@
 import "./UserCard.css";
 import Avatar from "../Avatar/Avatar";
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import {
+  DetailedHTMLProps,
+  FC,
+  HTMLAttributes,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import cn from "classnames";
 import { Link } from "react-router-dom";
 import { IUser } from "../../app/types";
@@ -12,13 +19,27 @@ interface Props
 }
 
 const UserCard: FC<Props> = ({ user, className, ...props }) => {
+  const [currentBGColor, setCurrentBGColor] = useState("");
   const repositoryQuantity = getPlural(user.public_repos);
   const repositoryText =
     repositoryQuantity == "one" ? "repository" : "repositories";
 
+  const myElementRef = useRef<null | HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (myElementRef.current) {
+      const computedStyle = window.getComputedStyle(myElementRef.current);
+      setCurrentBGColor(computedStyle.getPropertyValue("--background-color"));
+    }
+  }, []);
+
   return (
-    <div {...props} className={cn("user-card", className)}>
-      <Link to={`/users/${user.id}`} className="user-card__link">
+    <div ref={myElementRef} {...props} className={cn("user-card", className)}>
+      <Link
+        to={`/users/${user.id}`}
+        state={{ data: currentBGColor }}
+        className="user-card__link"
+      >
         <Avatar imageUrl={user.avatar_url} />
         <div className="user-card__info">
           <p className="user-card__name">{user.login}</p>

@@ -3,7 +3,7 @@ import users from "./../utils/usersV2.json";
 import { IUser } from "./types";
 
 const initialState = {
-  users: [] as Array<IUser>,
+  users: users as Array<IUser>,
 };
 
 export const commonSlice = createSlice({

@@ -5,9 +5,16 @@ import "./UsersProfileComponent.css";
 import usersV2 from "./../../utils/usersV2.json";
 import { getPlural } from "../../utils/getPlural";
 import repos from "./../../utils/repos.json";
+import { useLocation } from "react-router-dom";
+import { CSSProperties } from "react";
+import { LightenDarkenColor } from "../../utils/lightenDarkenColor";
 
 const UsersProfileComponent = () => {
   const { id } = useParams();
+
+  const location = useLocation();
+  const currentColor = location.state?.data;
+  const lightBG = LightenDarkenColor(currentColor, 50);
 
   const user = usersV2[0];
 
@@ -19,7 +26,10 @@ const UsersProfileComponent = () => {
     subscribersQuantity == "one" ? "subscriber" : "subscribers";
 
   return (
-    <div className="user-profile">
+    <div
+      className="user-profile"
+      style={{ "--background-color": currentColor } as CSSProperties}
+    >
       <div className="user-profile__user">
         <Avatar
           imageUrl={user.avatar_url}
@@ -43,7 +53,10 @@ const UsersProfileComponent = () => {
         </div>
       </div>
 
-      <div className="user-profile__repositories">
+      <div
+        className="user-profile__repositories"
+        style={{ backgroundColor: lightBG }}
+      >
         <RepositoriesList
           repositories={repos}
           repositoriesUrl={user.html_url}
