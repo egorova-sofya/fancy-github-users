@@ -10,8 +10,8 @@ export const commonSlice = createSlice({
   name: "common",
   initialState,
   reducers: {
-    updateUsers: (state, action: PayloadAction<Array<IUser>>) => {
-      state.users = action.payload;
+    updateUsers: (state, action: PayloadAction<IUser>) => {
+      (state.users = [...state.users]), action.payload;
     },
   },
 });
