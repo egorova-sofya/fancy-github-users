@@ -12,7 +12,12 @@ interface Props
 const RepositoryCard: FC<Props> = ({ repository, className, ...props }) => {
   return (
     <div {...props} className={cn("repository-card", className)}>
-      <Link to="#" className="repository-card__link">
+      <Link
+        target="_blank"
+        rel="noreferrer"
+        to={repository.html_url}
+        className="repository-card__link"
+      >
         <div className="repository-card__info">
           <p className="repository-card__name crop-line">{repository.name}</p>
           <p className="repository-card__description crop-line">
