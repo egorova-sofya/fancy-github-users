@@ -48,7 +48,7 @@ export const Header: FC = () => {
               setSearchValue={setSearchValue}
             />
 
-            <Button>Find</Button>
+            <Button type="submit">Find</Button>
           </form>
         </div>
       </div>

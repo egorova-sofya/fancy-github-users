@@ -4,7 +4,6 @@ import {
   fetchBaseQuery,
 } from "@reduxjs/toolkit/query/react";
 import { IRepository, IStrippedDownUser, IUser } from "../types";
-import { QueryReturnValue } from "@reduxjs/toolkit/dist/query/baseQueryTypes";
 
 export const API = createApi({
   reducerPath: "API",
@@ -42,7 +41,6 @@ export const API = createApi({
     }),
     searchUsers: build.query<Array<IUser>, { searchingData: string }>({
       async queryFn(_arg, _queryApi, _extraOptions, fetchWithBQ) {
-        // const users:QueryReturnValue<unknown, {users: {data: {items: Array<IStrippedDownUser>}}}, {}> = await fetchWithBQ(`search/users?q=${_arg.searchingData}`);
         const users = await fetchWithBQ(`search/users?q=${_arg.searchingData}`);
 
         if (users.error) return { error: users.error };

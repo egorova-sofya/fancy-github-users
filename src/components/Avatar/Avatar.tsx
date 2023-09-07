@@ -1,10 +1,4 @@
-import {
-  DetailedHTMLProps,
-  FC,
-  HTMLAttributes,
-  useEffect,
-  useState,
-} from "react";
+import { DetailedHTMLProps, FC, HTMLAttributes, useState } from "react";
 import "./Avatar.css";
 import cn from "classnames";
 interface Props

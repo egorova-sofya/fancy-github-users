@@ -9,16 +9,17 @@ import Loader from "../components/Loader/Loader";
 import ErrorComponent from "../components/ErrorComponent/ErrorComponent";
 
 export default function Users() {
-  const [getUsers, { isLoading, isError }] = API.useLazyGetGithubUsersQuery();
+  const [getUsers, { isLoading, isError, isFetching }] =
+    API.useLazyGetGithubUsersQuery();
 
   const finalUsers = useSelector((state: RootState) => state.commonSlice.users);
 
   const dispatch = useDispatch();
 
   const getFullUsersFullInfo = (since: number) => {
-    // getUsers({ since: since })
-    //   .unwrap()
-    //   .then((finalUser) => dispatch(updateUsers(finalUser)));
+    getUsers({ since: since })
+      .unwrap()
+      .then((finalUser) => dispatch(updateUsers(finalUser)));
   };
 
   useEffect(() => {
@@ -48,6 +49,7 @@ export default function Users() {
           onClick={loadMoreUsers}
           style={{ margin: "52px 0" }}
           appearance="secondary"
+          disabled={isFetching}
         >
           Load more
         </Button>
