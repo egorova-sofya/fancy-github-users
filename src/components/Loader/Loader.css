@@ -1,7 +1,14 @@
+.loader__wrapper {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .loader {
   width: 100px;
   height: 100px;
-  animation: spin 1s linear infinite;
+  animation: spin 0.5s linear infinite;
   background-image: url("./../../assets/images/Spinner.svg");
   background-repeat: no-repeat;
 }

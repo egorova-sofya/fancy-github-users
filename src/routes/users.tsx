@@ -3,40 +3,43 @@ import { API } from "../app/services/ApiService";
 import Button from "../components/Button/Button";
 import UsersList from "../components/UsersList/UsersList";
 import { updateUsers } from "../app/commonSlice";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { RootState } from "../app/store";
+import Loader from "../components/Loader/Loader";
 
 export default function Users() {
-  const [usersQuantity, setUsersQuantity] = useState(1);
+  const [getUsers, { isLoading, isError }] = API.useLazyGetGithubUsersQuery();
 
-  // const { data: users } = API.useGetGithubUsersQuery({ since: 1 });
-  const [getUsers] = API.useLazyGetGithubUsersQuery();
-
-  const [getUser, { data }] = API.useLazyGetGithubUserQuery();
   const finalUsers = useSelector((state: RootState) => state.commonSlice.users);
 
   const dispatch = useDispatch();
 
-  // const getFullUsersFullInfo = () => {
-  //   getUsers({ since: usersQuantity })
-  //     .unwrap()
-  //     .then((res) => {
-  //       res.map((user) => {
-  //         getUser({ userLogin: user.login })
-  //           .unwrap()
-  //           .then((finalUser) => dispatch(updateUsers(finalUser)));
-  //       });
-  //     });
-  // };
+  const getFullUsersFullInfo = (since: number) => {
+    getUsers({ since: since })
+      .unwrap()
+      .then((finalUser) => dispatch(updateUsers(finalUser)));
+  };
 
-  // useEffect(() => {
-  //   getFullUsersFullInfo();
-  // }, []);
+  useEffect(() => {
+    getFullUsersFullInfo(1);
+  }, []);
 
   const loadMoreUsers = () => {
-    setUsersQuantity(usersQuantity + 10);
-    getUsers({ since: usersQuantity });
+    //without 1 loaded with duplicates
+    getFullUsersFullInfo(finalUsers.length + 1);
   };
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (isError) {
+    return (
+      <h1 style={{ padding: "12px var(--padding-left-right)" }}>
+        Something went wrong. Try reloading the page
+      </h1>
+    );
+  }
 
   return (
     <>
