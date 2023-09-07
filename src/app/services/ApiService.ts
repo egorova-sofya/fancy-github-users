@@ -43,7 +43,9 @@ export const API = createApi({
     }),
     searchUsers: build.query<Array<IUser>, { searchingData: string }>({
       async queryFn(_arg, _queryApi, _extraOptions, fetchWithBQ) {
-        const users = await fetchWithBQ(`search/users?q=${_arg.searchingData}`);
+        const users = await fetchWithBQ(
+          `search/users?per_page=12&q=${_arg.searchingData}`
+        );
 
         if (users.error) return { error: users.error };
 

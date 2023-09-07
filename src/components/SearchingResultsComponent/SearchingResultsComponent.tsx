@@ -17,7 +17,7 @@ const SearchingResultsComponent = () => {
   console.log("searchingData", searchingData);
 
   const getFullUsersFullInfo = (searchingData: string) => {
-    searchUsers({ searchingData: searchingData });
+    !isFetching && searchUsers({ searchingData: searchingData });
   };
 
   useEffect(() => {
