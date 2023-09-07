@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, FC, HTMLAttributes, useState } from "react";
+import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import "./Avatar.css";
 import cn from "classnames";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -7,19 +7,14 @@ interface Props
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   imageUrl: string;
   size?: "medium" | "large";
+  userName: string;
 }
-const Avatar: FC<Props> = ({ imageUrl, size = "medium", className }) => {
-  const [isImageExist, setIsImageExist] = useState(false);
-
-  const img = new Image();
-  img.src = imageUrl;
-  img.onload = function () {
-    setIsImageExist(true);
-  };
-  img.onerror = function () {
-    setIsImageExist(false);
-  };
-
+const Avatar: FC<Props> = ({
+  imageUrl,
+  size = "medium",
+  userName,
+  className,
+}) => {
   const sizesStyles = {
     ["avatar--medium"]: size == "medium",
     ["avatar--large"]: size == "large",
@@ -27,27 +22,19 @@ const Avatar: FC<Props> = ({ imageUrl, size = "medium", className }) => {
 
   return (
     <>
-      {isImageExist ? (
-        // <img
-        //   className={cn("avatar", sizesStyles, className)}
-        //   src={imageUrl}
-        //   alt="user's avatar"
-        //   height={80}
-        //   width={80}
-        // />
+      <div>
         <LazyLoadImage
           className={cn("avatar", sizesStyles, className)}
           src={imageUrl}
-          alt="user's avatar"
-          effect="opacity" // Add the desired animation effect
-          height={80}
-          width={80}
+          alt={`${userName}'s avatar`}
+          effect="opacity"
+          placeholder={
+            <div className={cn("avatar__placeholder", sizesStyles, className)}>
+              {userName[0]}
+            </div>
+          }
         />
-      ) : (
-        <div className={cn("avatar__placeholder", sizesStyles, className)}>
-          N
-        </div>
-      )}
+      </div>
     </>
   );
 };

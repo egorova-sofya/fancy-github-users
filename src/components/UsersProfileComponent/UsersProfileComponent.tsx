@@ -50,6 +50,7 @@ const UsersProfileComponent = () => {
     >
       <div className="user-profile__user">
         <Avatar
+          userName={user.login}
           imageUrl={user.avatar_url}
           size="large"
           className="user-profile__avatar"

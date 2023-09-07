@@ -1,6 +1,6 @@
 # GitHub user search app
 
-![Game Cover](./src/assets/images/cover.png)
+![Game Cover](./src/assets/images/cover.jpg)
 
 ## Description
 

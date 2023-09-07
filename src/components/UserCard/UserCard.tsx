@@ -40,7 +40,7 @@ const UserCard: FC<Props> = ({ user, className, ...props }) => {
         state={{ data: currentBGColor }}
         className="user-card__link"
       >
-        <Avatar imageUrl={user.avatar_url} />
+        <Avatar userName={user.login} imageUrl={user.avatar_url} />
         <div className="user-card__info">
           <p className="user-card__name crop-line">{user.login}</p>
           <div className="user-card__wrapper">
