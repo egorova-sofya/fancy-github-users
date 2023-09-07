@@ -9,9 +9,18 @@ interface Props
   > {
   icon?: SVGProps<SVGElement>;
   name: string;
+  searchValue: string;
+  setSearchValue: (value: string) => void;
 }
 
-const Input: FC<Props> = ({ icon, name, className, ...props }) => {
+const Input: FC<Props> = ({
+  icon,
+  name,
+  searchValue,
+  setSearchValue,
+  className,
+  ...props
+}) => {
   return (
     <div className={cn("input__wrapper", className)}>
       {icon && (
@@ -26,8 +35,8 @@ const Input: FC<Props> = ({ icon, name, className, ...props }) => {
         placeholder="Search"
         name={name}
         style={icon ? { paddingLeft: "56px" } : {}}
-        //   value={searchValue}
-        //   onChange={(event) => setSearchValue(event.currentTarget.value)}
+        value={searchValue}
+        onChange={(event) => setSearchValue(event.currentTarget.value)}
       />
     </div>
   );

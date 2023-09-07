@@ -36,7 +36,7 @@ const UserCard: FC<Props> = ({ user, className, ...props }) => {
   return (
     <div ref={myElementRef} {...props} className={cn("user-card", className)}>
       <Link
-        to={`/users/${user.id}`}
+        to={`/users/${user.login}`}
         state={{ data: currentBGColor }}
         className="user-card__link"
       >

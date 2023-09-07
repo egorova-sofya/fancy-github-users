@@ -3,7 +3,8 @@ import {
   createApi,
   fetchBaseQuery,
 } from "@reduxjs/toolkit/query/react";
-import { IStrippedDownUser, IUser } from "../types";
+import { IRepository, IStrippedDownUser, IUser } from "../types";
+import { QueryReturnValue } from "@reduxjs/toolkit/dist/query/baseQueryTypes";
 
 export const API = createApi({
   reducerPath: "API",
@@ -38,6 +39,34 @@ export const API = createApi({
           ? { data: finalUsers as Array<IUser> }
           : { error: new Error("Error fetching users") };
       },
+    }),
+    searchUsers: build.query<Array<IUser>, { searchingData: string }>({
+      async queryFn(_arg, _queryApi, _extraOptions, fetchWithBQ) {
+        // const users:QueryReturnValue<unknown, {users: {data: {items: Array<IStrippedDownUser>}}}, {}> = await fetchWithBQ(`search/users?q=${_arg.searchingData}`);
+        const users = await fetchWithBQ(`search/users?q=${_arg.searchingData}`);
+
+        if (users.error) return { error: users.error };
+
+        const finalUsers = [];
+
+        const userData = users.data as { items: Array<IStrippedDownUser> };
+        const strippedUsers = userData.items as Array<IStrippedDownUser>;
+        console.log("strippedUsers", strippedUsers);
+        for (const user of strippedUsers) {
+          const finalUser = await fetchWithBQ(`users/${user.login}`);
+          finalUsers.push(finalUser.data);
+        }
+
+        return finalUsers
+          ? { data: finalUsers as Array<IUser> }
+          : { error: new Error("Error fetching users") };
+      },
+    }),
+    getGithubUser: build.query<IUser, { userLogin: string }>({
+      query: (data) => `users/${data.userLogin}`,
+    }),
+    getRepositories: build.query<Array<IRepository>, { userLogin: string }>({
+      query: (data) => `users/${data.userLogin}/repos`,
     }),
   }),
 });

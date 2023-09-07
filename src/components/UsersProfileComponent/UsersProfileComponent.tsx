@@ -2,22 +2,39 @@ import { useParams } from "react-router-dom";
 import Avatar from "../Avatar/Avatar";
 import RepositoriesList from "../RepositoriesList/RepositoriesList";
 import "./UsersProfileComponent.css";
-import usersV2 from "./../../utils/usersV2.json";
 import { getPlural } from "../../utils/getPlural";
-import repos from "./../../utils/repos.json";
 import { useLocation } from "react-router-dom";
 import { CSSProperties } from "react";
 import { LightenDarkenColor } from "../../utils/lightenDarkenColor";
-import { IUser } from "../../app/types";
+import { API } from "../../app/services/ApiService";
+import Loader from "../Loader/Loader";
+import ErrorComponent from "../ErrorComponent/ErrorComponent";
 
 const UsersProfileComponent = () => {
-  const { id } = useParams();
+  const { login } = useParams();
+
+  const {
+    data: user,
+    isLoading: isUsersLoading,
+    isError: isUsersError,
+  } = API.useGetGithubUserQuery({ userLogin: login || "" });
+  const {
+    data: repos,
+    isLoading: isReposLoading,
+    isError: isReposError,
+  } = API.useGetRepositoriesQuery({ userLogin: login || "" });
 
   const location = useLocation();
   const currentColor = location.state?.data;
   const lightBG = LightenDarkenColor(currentColor, 50);
 
-  const user = usersV2[0] as IUser;
+  if (isUsersLoading) {
+    return <Loader />;
+  }
+
+  if (isUsersError || !user) {
+    return <ErrorComponent />;
+  }
 
   const followersQuantity = getPlural(user.followers);
   const followersText = followersQuantity == "one" ? "follower" : "followers";
@@ -67,10 +84,14 @@ const UsersProfileComponent = () => {
         className="user-profile__repositories"
         style={{ backgroundColor: lightBG }}
       >
-        <RepositoriesList
-          repositories={repos}
-          repositoriesUrl={user.html_url}
-        />
+        {isReposLoading && <Loader />}
+        {isReposError && <ErrorComponent />}
+        {repos && (
+          <RepositoriesList
+            repositories={repos}
+            repositoriesUrl={user.html_url}
+          />
+        )}
       </div>
     </div>
   );

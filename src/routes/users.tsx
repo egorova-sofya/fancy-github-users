@@ -6,6 +6,7 @@ import { updateUsers } from "../app/commonSlice";
 import { useEffect } from "react";
 import { RootState } from "../app/store";
 import Loader from "../components/Loader/Loader";
+import ErrorComponent from "../components/ErrorComponent/ErrorComponent";
 
 export default function Users() {
   const [getUsers, { isLoading, isError }] = API.useLazyGetGithubUsersQuery();
@@ -15,9 +16,9 @@ export default function Users() {
   const dispatch = useDispatch();
 
   const getFullUsersFullInfo = (since: number) => {
-    getUsers({ since: since })
-      .unwrap()
-      .then((finalUser) => dispatch(updateUsers(finalUser)));
+    // getUsers({ since: since })
+    //   .unwrap()
+    //   .then((finalUser) => dispatch(updateUsers(finalUser)));
   };
 
   useEffect(() => {
@@ -34,11 +35,7 @@ export default function Users() {
   }
 
   if (isError) {
-    return (
-      <h1 style={{ padding: "12px var(--padding-left-right)" }}>
-        Something went wrong. Try reloading the page
-      </h1>
-    );
+    return <ErrorComponent />;
   }
 
   return (

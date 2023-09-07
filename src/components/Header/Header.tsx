@@ -6,7 +6,7 @@ import Button from "../Button/Button";
 import searchIcon from "./../../assets/images/search-icon.svg";
 
 export const Header: FC = () => {
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState("test");
   const location = useLocation() as unknown as LocationProps;
   const navigate = useNavigate();
 
@@ -21,7 +21,7 @@ export const Header: FC = () => {
     if (!searchValue.trim().length) {
       return;
     }
-    navigate(`../search?query=${searchValue}`, { state: searchValue });
+    navigate(`../searching-results?search-value=${searchValue}`);
   };
 
   return (
@@ -44,6 +44,8 @@ export const Header: FC = () => {
             <Input
               name="search"
               icon={<img src={searchIcon} alt="Search Icon" />}
+              searchValue={searchValue}
+              setSearchValue={setSearchValue}
             />
 
             <Button>Find</Button>
