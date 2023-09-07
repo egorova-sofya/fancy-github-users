@@ -23,6 +23,7 @@ const RepositoriesList: FC<Props> = ({ repositories, repositoriesUrl }) => {
         </a>
       </div>
       <div className="repositories-list__wrapper">
+        {repositories?.length == 0 && <p>No repositories yet</p>}
         {repositories.map((repository) => {
           return <RepositoryCard key={repository.id} repository={repository} />;
         })}

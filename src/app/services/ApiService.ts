@@ -22,7 +22,7 @@ export const API = createApi({
     getGithubUsers: build.query<Array<IUser>, void>({
       async queryFn(_arg, _queryApi, _extraOptions, fetchWithBQ) {
         const users = await fetchWithBQ(
-          `users?per_page=3&since=${Math.round(
+          `users?per_page=12&since=${Math.round(
             Math.random() * 10000
           )}&page=${Math.round(Math.random() * 10000)}`
         );
