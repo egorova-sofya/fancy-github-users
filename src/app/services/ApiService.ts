@@ -10,7 +10,10 @@ export const API = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `https://api.github.com/`,
     prepareHeaders: (headers) => {
-      headers.set("Authorization", import.meta.env.APP_API_TOKEN as string);
+      headers.set(
+        "Authorization",
+        `Bearer ${import.meta.env.VITE_API_TOKEN as string}`
+      );
       headers.set("X-GitHub-Api-Version", "2022-11-28");
       return headers;
     },
