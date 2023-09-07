@@ -48,7 +48,7 @@ const NoResults: FC<{ searchingData: string }> = ({ searchingData }) => {
   return (
     <div className="searching-results">
       <div className="searching-results__not-found">
-        <p className="searching-results__not-found-title">
+        <p className="searching-results__not-found-title crop-line">
           No results found for {searchingData}
         </p>
       </div>
