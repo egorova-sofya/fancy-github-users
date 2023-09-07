@@ -1,6 +1,8 @@
 import { DetailedHTMLProps, FC, HTMLAttributes, useState } from "react";
 import "./Avatar.css";
 import cn from "classnames";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/opacity.css";
 interface Props
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   imageUrl: string;
@@ -26,10 +28,18 @@ const Avatar: FC<Props> = ({ imageUrl, size = "medium", className }) => {
   return (
     <>
       {isImageExist ? (
-        <img
+        // <img
+        //   className={cn("avatar", sizesStyles, className)}
+        //   src={imageUrl}
+        //   alt="user's avatar"
+        //   height={80}
+        //   width={80}
+        // />
+        <LazyLoadImage
           className={cn("avatar", sizesStyles, className)}
           src={imageUrl}
           alt="user's avatar"
+          effect="opacity" // Add the desired animation effect
           height={80}
           width={80}
         />
