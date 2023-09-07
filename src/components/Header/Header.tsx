@@ -6,7 +6,7 @@ import Button from "../Button/Button";
 import searchIcon from "./../../assets/images/search-icon.svg";
 
 export const Header: FC = () => {
-  const [searchValue, setSearchValue] = useState("test");
+  const [searchValue, setSearchValue] = useState("");
   const location = useLocation() as unknown as LocationProps;
   const navigate = useNavigate();
 

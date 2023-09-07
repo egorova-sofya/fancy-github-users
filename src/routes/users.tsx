@@ -16,19 +16,18 @@ export default function Users() {
 
   const dispatch = useDispatch();
 
-  const getFullUsersFullInfo = (since: number) => {
-    getUsers({ since: since })
+  const getFullUsersFullInfo = () => {
+    getUsers()
       .unwrap()
       .then((finalUser) => dispatch(updateUsers(finalUser)));
   };
 
   useEffect(() => {
-    getFullUsersFullInfo(1);
+    getFullUsersFullInfo();
   }, []);
 
   const loadMoreUsers = () => {
-    //without 1 loaded with duplicates
-    getFullUsersFullInfo(finalUsers.length + 1);
+    getFullUsersFullInfo();
   };
 
   if (isLoading) {
